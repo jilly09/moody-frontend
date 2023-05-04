@@ -1,0 +1,262 @@
+@font-face {
+  font-family: "Roboto";
+  src: url("assets/roboto.ttf");
+}
+@font-face {
+  font-family: "cg";
+  src: url("assets/cg.otf");
+}
+* {
+  font-family: "Roboto";
+}
+#authentication {
+  position: absolute;
+}
+#authentication .auth-emoji{
+  height: 50%;
+  margin: 0 auto;
+  max-height: fit-content;
+  text-align: center;
+}
+#authentication .form{
+  height: 50%;
+  margin: 0 auto;
+  max-height: fit-content;
+  text-align: center;
+}
+#authentication div {
+  margin: 0 auto;
+}
+
+#registration {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+#registration div {
+  text-align: center;
+  margin: 0 auto;
+  width: 260px;
+}
+#notes {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+#note-list {
+  padding-left: 10px;
+}
+.note-item h1{
+  margin: 0px;
+}
+.note-item p {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+input {
+  width: 260px;
+  height: 40px;
+  margin-bottom: 5px;
+  background-color: transparent;
+  border: 2px solid black;
+  box-sizing: border-box;
+  padding: 5px;
+  border-radius: 10px;
+}
+button {
+  background: rgb(255,237,0);
+  background: linear-gradient(90deg, rgba(255,237,0,1) 0%, rgba(255,0,0,1) 35%, rgba(255,126,0,1) 100%);
+  width: 260px;
+  height: 40px;
+  border-radius: 10px;
+  color: white;
+  border: none;
+}
+#authentication .auth-emoji {
+  box-sizing: border-box;
+  border-bottom: 1px solid black;
+  display: flex;
+  align-items: center;
+}
+#authentication .form {
+  display: flex;
+  align-items: center;
+}
+.emoji-picker {
+  display: flex;
+  width: 260px;
+  height: 60px;
+}
+.emoji-picker img {
+  width: 60px;
+  height: 60px;
+}
+#reglink {
+  text-decoration: underline;
+}
+
+.flying-button {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+}
+.flying-button button {
+  background: rgb(255,237,0);
+  background: linear-gradient(318deg, rgba(255,237,0,1) 0%, rgba(255,0,0,1) 100%);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 25px;
+}
+.flying-button-left {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+}
+.flying-button-left button{
+  background: rgb(255,0,0);
+  background: linear-gradient(318deg, rgba(255,0,0,1) 0%, rgba(255,237,0,1) 100%);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 25px;
+}
+.note {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  position: absolute;
+}
+.note input {
+  width: 100%;
+  margin: 0px;
+  border-radius: 0px;
+  height: 8%;
+  font-size: 25px;
+  border: none;
+  border-bottom: solid black 2px;
+  box-sizing: border-box;
+}
+.note textarea {
+  margin: 0px;
+  height: 92%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#update-status textarea{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  resize: none;
+}
+#update-status .emoji-picker {
+  margin: 0 auto;
+  width: 300px;
+}
+#update-status {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.zero {
+  margin: 0 auto;
+}
+#add-day-note .emoji-picker{
+  margin: 0 auto;
+  width: 300px;
+}
+#add-day-note textarea{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  resize: none;
+}
+#add-day-note {
+  text-align: center;
+}
+#menu {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  color: white;
+  background-color: black;
+}
+#menu div {
+  margin: 0 auto;
+  max-width: fit-content;
+}
+#menu h1 {
+  font-size: 50px;
+}
+
+.small {
+  font-size: 10px;
+}
+body {
+  margin: 0px;
+  padding: 0px;
+}
+.window {
+  width: 100%;
+  height: 100%;
+}
+#friends {
+  position: absolute;
+}
+.daynote {
+  display: flex;
+  max-width: fit-content;
+}
+.daynote p,h3 {
+  word-break: break-all;
+}
+#post_list, #friends-list {
+  padding-top: 20px;
+  margin: 0 auto;
+  max-width: 600px;
+}
+#friends-add-div {
+  text-align: center;
+}
+.daynote img {
+  width: 60px;
+  height: 60px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+#note-list {
+  padding-top: 20px;
+  margin: 0 auto;
+  max-width: 600px;
+}
+.note-item {
+  max-width: fit-content;
+}
+/* #authentication, */
+#friends,
+#menu,
+#registration,
+#notes,
+.note,
+#feed,
+#update-status,
+#add-day-note,
+#wait,
+.user-page {
+  display: none;
+}

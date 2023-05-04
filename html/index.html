@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>moody</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="libs/jquery-3.6.4.min.js" charset="utf-8"></script>
+    <script src="libs/openpgp.min.js" charset="utf-8"></script>
+    <script src="libs/bcrypt.min.js" charset="utf-8"></script>
+    <script src="libs/sha.js" charset="utf-8"></script>
+    <script src="libs/encrypt.js" charset="utf-8"></script>
+    <script defer src="feed.js" charset="utf-8"></script>
+    <script defer src="cookies.js" charset="utf-8"></script>
+    <script defer src="ui.js" charset="utf-8"></script>
+    <script defer src="notes.js" charset="utf-8"></script>
+    <script defer src="reg.js" charset="utf-8"></script>
+    <script defer src="login.js" charset="utf-8"></script>
+    <script defer src="addnote.js" charset="utf-8"></script>
+    <script defer src="daynotes.js" charset="utf-8"></script>
+    <script defer src="friends.js" charset="utf-8"></script>
+    <script defer src="addfriend.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div class="window" id="authentication">
+      <div class="auth-emoji">
+        <div class="emoji-picker">
+          <div class="emoji">
+            <img src="assets/h.png" alt="">
+          </div>
+          <div class="emoji">
+            <img src="assets/g.png" alt="">
+          </div>
+          <div class="emoji">
+            <img src="assets/h.png" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="form">
+        <div>
+          <input id="loginnickname" type="text" name="" value="" placeholder="Никнейм"><br>
+          <input id="loginpassword" type="password" name="" value="" placeholder="Пароль"><br>
+          <button id="loginbt">Войти</button>
+          <p>Нет аккаунта? <span id="reglink">Регистрация</span></p>
+        </div>
+      </div>
+    </div>
+    <div class="window" id="registration">
+      <div>
+        <input id="regnickname" type="text" name="" value="" placeholder="Никнейм">
+        <input id="regpassword" type="password" name="" value="" placeholder="Пароль">
+        <button id="regbt">Регистрация</button>
+        <p>Мы используем твой пароль для шифрования данных аккаунта.<br>
+        <b>Ты не сможешь его восстановить.</b> Даже мы не можем получить к нему доступ.</p>
+        <p><u><span id="loginlink">Войти в существующий аккаунт</span></u></p>
+      </div>
+    </div>
+    <div class="window" id="notes">
+      <div id="note-list">
+        <!-- <div class="note-item">
+          <h1>Заголовок</h1>
+          <p>qwertyuiopaslznmqeuiopaklznmqopask</p>
+        </div> -->
+      </div>
+      <div class="flying-button">
+        <button id="notebt">+</button>
+      </div>
+      <div class="flying-button-left">
+        <button class="menubt">~</button>
+      </div>
+    </div>
+    <div id="note" class="window note">
+      <input id="notetitle" type="text" name="" value="" placeholder="Заголовок"><br>
+      <textarea id="notetext" placeholder="Текст в этой заметке не увидит никто, кроме тебя. Даже мы." name="name" rows="8" cols="80"></textarea>
+      <div class="flying-button">
+        <button id="backnotes"> < </button>
+      </div>
+    </div>
+    <div class="window" id="feed">
+      <div id="post_list">
+      </div>
+      <div class="flying-button-left">
+        <button class="menubt">~</button>
+      </div>
+      <div class="flying-button">
+        <button id="dnbt">+</button>
+      </div>
+    </div>
+    <div class="window" id="update-status">
+      <div class="zero">
+        <div class="emoji-picker">
+          <div class="emoji">
+            <img src="assets/vs.png" alt="">
+          </div>
+          <div class="emoji">
+            <img src="assets/s.png" alt="">
+          </div>
+          <div class="emoji">
+            <img src="assets/n.png" alt="">
+          </div>
+          <div class="emoji">
+            <img src="assets/g.png" alt="">
+          </div>
+          <div class="emoji">
+            <img src="assets/h.png" alt="">
+          </div>
+        </div>
+        <textarea name="name" rows="8" cols="80" placeholder="Что у вас нового?"></textarea>
+        <button>Обновить статус</button>
+      </div>
+      <div class="flying-button">
+        <button>~</button>
+      </div>
+    </div>
+    <div class="window" id="add-day-note">
+      <div class="emoji-picker">
+        <div id="vsdn" class="emoji">
+          <img src="assets/vs.png" alt="">
+        </div>
+        <div id="sdn" class="emoji">
+          <img src="assets/s.png" alt="">
+        </div>
+        <div id="ndn" class="emoji">
+          <img src="assets/n.png" alt="">
+        </div>
+        <div id="gdn" class="emoji">
+          <img src="assets/g.png" alt="">
+        </div>
+        <div id="hdn" class="emoji">
+          <img src="assets/h.png" alt="">
+        </div>
+      </div>
+      <textarea id="privatedn" placeholder="Здесь ты можешь написать личную информацию, которую никто, кроме тебя, не увидит." name="name" rows="8" cols="80"></textarea>
+      <br>
+      <textarea id="publicdn" placeholder="Это часть заметки для твоих друзей." name="name" rows="8" cols="80"></textarea>
+      <p class="small">Публичную часть этой заметки и эмодзи настроения увидят твои друзья.</p>
+      <button id="publishdnbt">Опубликовать</button>
+      <div class="flying-button">
+        <button onclick="$('#add-day-note').hide();$('#feed').show()">-</button>
+      </div>
+    </div>
+    <div class="window" id="wait">
+      <h1>Секундочку...</h1>
+      <p>Мы используем сквозное шифрование. Это может занимать время.</p>
+    </div>
+    <div class="window" id="friends">
+      <div id="friends-add-div">
+        <input id="frnickname" placeholder="Введи никнейм твоего друга" type="text" name="" value=""><br>
+        <button id="sendfrbt">Отправить запрос дружбы</button>
+      </div>
+      <div id="friends-list">
+
+      </div>
+      <div id="pending-requests">
+
+      </div>
+      <div class="flying-button">
+        <button id="addfriendbt">+</button>
+      </div>
+      <div class="flying-button-left">
+        <button class="menubt">~</button>
+      </div>
+    </div>
+    <div id="menu" class="window">
+      <div>
+        <h1 id="feedbt">фид</h1>
+        <h1 id="notesbt">заметки</h1>
+        <h1 id="friendsbt">друзья</h1>
+        <h1 id="backbt">назад</h1>
+      </div>
+    </div>
+    <div class="window user-page">
+      <img src="" alt="">
+      <h1></h1>
+      <p></p>
+      <p></p>
+      <div class="posts">
+      </div>
+      <div class="flying-button">
+        <button>ок</button>
+      </div>
+    </div>
+  </body>
+</html>
